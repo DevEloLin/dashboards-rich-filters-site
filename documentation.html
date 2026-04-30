@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Documentation for Dashboards Rich Filters - Complete user guide for the premium Jira Cloud dashboard gadget with smart filters and analytics.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://develolin.github.io/dashboards-rich-filters-site/documentation.html">
+    <title>Documentation - Dashboards Rich Filters</title>
+
+    <style>
+        :root {
+            --primary: #0052CC;
+            --dark: #172B4D;
+            --light: #F4F5F7;
+            --white: #FFFFFF;
+            --accent: #00B8D9;
+            --success: #36B37E;
+            --warning: #FFAB00;
+            --gradient: linear-gradient(135deg, #0052CC 0%, #6554C0 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 500; }
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            background: var(--gradient);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content h2 {
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .content h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .content p { margin-bottom: 1rem; color: #444; }
+        .content ul, .content ol { margin-bottom: 1rem; padding-left: 2rem; }
+        .content li { margin-bottom: 0.5rem; }
+
+        .content img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            margin: 1.5rem 0;
+        }
+
+        .tip-box {
+            background: #E3FCEF;
+            border-left: 4px solid var(--success);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box {
+            background: #DEEBFF;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        code {
+            background: #e0e0e0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light);
+        }
+
+        th { background: var(--light); font-weight: 600; }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Dashboards Rich Filters</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Documentation</h1>
+        <p>Complete guide to using Dashboards Rich Filters</p>
+    </section>
+
+    <main class="content">
+        <h2 id="getting-started">Getting Started</h2>
+        <p>Dashboards Rich Filters is a premium dashboard gadget for Atlassian Jira Cloud that transforms your project data into beautiful, executive-ready visualizations.</p>
+
+        <div class="info-box">
+            <strong>Quick Start:</strong> Install from Atlassian Marketplace, add the gadget to any dashboard, and start filtering your Jira data instantly.
+        </div>
+
+        <img src="image/dashboard1.png" alt="Dashboards Rich Filters main dashboard view">
+
+        <h2 id="installation">Installation</h2>
+        <h3>From Atlassian Marketplace</h3>
+        <ol>
+            <li>Go to Atlassian Marketplace</li>
+            <li>Click "Get it now" or "Try it free"</li>
+            <li>Select your Jira Cloud site</li>
+            <li>Review and accept the permissions</li>
+            <li>Click "Install"</li>
+        </ol>
+
+        <h3>Adding to Dashboard</h3>
+        <ol>
+            <li>Navigate to any Jira Dashboard</li>
+            <li>Click "Add gadget" in the top right</li>
+            <li>Search for "Dashboards Rich Filters"</li>
+            <li>Click "Add" to add it to your dashboard</li>
+        </ol>
+
+        <h2 id="filters">Smart Filters</h2>
+        <table>
+            <thead>
+                <tr><th>Filter</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Projects</td><td>Filter by one or more Jira projects</td></tr>
+                <tr><td>Assignees</td><td>Filter by assigned team members</td></tr>
+                <tr><td>Priority</td><td>Filter by issue priority level</td></tr>
+                <tr><td>Status</td><td>Filter by workflow status</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="health-score">Health Score Analytics</h2>
+        <p>The Health Score provides an at-a-glance assessment of your project's overall health on a 0-100 scale.</p>
+
+        <table>
+            <thead>
+                <tr><th>Factor</th><th>Weight</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Completion Rate</td><td>40%</td><td>Percentage of issues marked as Done</td></tr>
+                <tr><td>Overdue Ratio</td><td>25%</td><td>Issues past their due date</td></tr>
+                <tr><td>Blocked Issues</td><td>20%</td><td>Issues in blocked status</td></tr>
+                <tr><td>Unassigned Tasks</td><td>15%</td><td>Issues without an assignee</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="dashboards">Dashboard Types</h2>
+
+        <h3>Executive Dashboard</h3>
+        <p>The main dashboard view with comprehensive KPIs, health score, and all visualization charts.</p>
+        <img src="image/dashboard2.png" alt="Executive Dashboard view">
+
+        <h3>PMO Dashboard</h3>
+        <p>Portfolio-level view for Project Management Office teams.</p>
+        <img src="image/pmo1.png" alt="PMO Dashboard">
+
+        <h3>Project Milestones</h3>
+        <p>Timeline visualization of project milestones and deliverables.</p>
+        <img src="image/Project Milestones1.png" alt="Project Milestones">
+        <img src="image/Project Milestones2.png" alt="Project Milestones detailed">
+
+        <h3>Risk Analysis</h3>
+        <p>Ishikawa (fishbone) diagram for root cause and risk analysis.</p>
+        <img src="image/Project Risk Analysis · Ishikawa.png" alt="Ishikawa Risk Analysis">
+
+        <h3>Time Tracking</h3>
+        <p>Workload analysis showing time spent by assignee.</p>
+        <img src="image/Time Spent by Assignee.png" alt="Time tracking">
+
+        <h2 id="themes">Themes & Demo Mode</h2>
+
+        <h3>Dark Theme</h3>
+        <p>Click the moon/sun icon in the gadget header to toggle between light and dark themes.</p>
+
+        <h3>Demo Mode</h3>
+        <p>Demo Mode masks all sensitive data with placeholder values - perfect for presentations, board meetings, and public demos.</p>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> Project names appear as "Project A", "Project B" in demo mode to protect sensitive information.
+        </div>
+
+        <h2 id="permissions">Permissions</h2>
+        <table>
+            <thead>
+                <tr><th>Permission</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>read:jira-work</code></td><td>Read issues to display statistics</td></tr>
+                <tr><td><code>read:jira-user</code></td><td>Populate assignee filter</td></tr>
+                <tr><td><code>read:sprint:jira-software</code></td><td>Sprint-based filtering</td></tr>
+                <tr><td><code>read:project:jira</code></td><td>Project filter</td></tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <strong>Privacy:</strong> We do NOT store or transmit any of your Jira data. See our <a href="privacy-policy.html">Privacy Policy</a>.
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024-2026 elolin. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Home</a> |
+            <a href="support.html">Support</a> |
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </p>
+    </footer>
+</body>
+</html>

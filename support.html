@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support Center for Dashboards Rich Filters - Get help, find answers to FAQs, and contact our support team for your Jira dashboard gadget.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://develolin.github.io/dashboards-rich-filters-site/support.html">
+    <title>Support - Dashboards Rich Filters</title>
+
+    <style>
+        :root {
+            --primary: #0052CC;
+            --secondary: #6554C0;
+            --dark: #172B4D;
+            --light: #F4F5F7;
+            --white: #FFFFFF;
+            --accent: #00B8D9;
+            --success: #36B37E;
+            --gradient: linear-gradient(135deg, #0052CC 0%, #6554C0 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 500; }
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            background: var(--gradient);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        .contact-section { padding: 4rem 2rem; background: var(--light); }
+
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover { transform: translateY(-5px); }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-icon svg { width: 28px; height: 28px; color: var(--white); }
+        .contact-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .contact-card p { color: #666; margin-bottom: 1rem; }
+        .contact-card a { color: var(--primary); font-weight: 600; text-decoration: none; }
+
+        .response-section { padding: 4rem 2rem; background: var(--light); }
+
+        .response-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .response-box h3 { color: var(--primary); margin-bottom: 1rem; }
+        .response-time { font-size: 2.5rem; font-weight: 700; color: var(--success); margin: 1rem 0; }
+
+        .faq-section { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 2rem; color: var(--dark); }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .faq-answer { padding: 1.5rem; color: #444; border-top: 1px solid #e0e0e0; }
+        .faq-answer ul, .faq-answer ol { margin-top: 0.5rem; padding-left: 1.5rem; }
+
+        .troubleshoot-section { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; }
+
+        .troubleshoot-item {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .troubleshoot-item h4 { color: var(--primary); margin-bottom: 0.5rem; }
+        code { background: #e0e0e0; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: monospace; }
+
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Dashboards Rich Filters</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Support Center</h1>
+        <p>We're here to help you get the most out of Dashboards Rich Filters.</p>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3>Email Support</h3>
+                <p>Get help from our support team</p>
+                <a href="mailto:dev.elolin@gmail.com">dev.elolin@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <h3>Documentation</h3>
+                <p>Comprehensive user guide</p>
+                <a href="documentation.html">View Documentation</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </div>
+                <h3>Marketplace</h3>
+                <p>Visit our Atlassian Marketplace page</p>
+                <a href="https://marketplace.atlassian.com/vendors/1227019" target="_blank">elolin Vendor Page</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="response-section">
+        <div class="response-box">
+            <h3>Response Time</h3>
+            <div class="response-time">&lt; 24 Hours</div>
+            <p>We respond to all support requests within 24 hours on business days.</p>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I install Dashboards Rich Filters?</div>
+            <div class="faq-answer">
+                <ol>
+                    <li>Go to the Atlassian Marketplace</li>
+                    <li>Click "Get it now" or "Try it free"</li>
+                    <li>Select your Jira Cloud site</li>
+                    <li>Confirm the installation</li>
+                    <li>Navigate to any Jira Dashboard and add the gadget</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What permissions does the app need?</div>
+            <div class="faq-answer">
+                <p>The app requires these read-only permissions:</p>
+                <ul>
+                    <li><code>read:jira-work</code> - To read issues and display statistics</li>
+                    <li><code>read:jira-user</code> - To populate the assignee filter</li>
+                    <li><code>read:sprint:jira-software</code> - For sprint filtering</li>
+                </ul>
+                <p>We do NOT write or store any data.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I enable Demo Mode?</div>
+            <div class="faq-answer">
+                <p>Click the "Demo" toggle button in the gadget header. All sensitive data will be masked with placeholder values - perfect for presentations.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How is the Health Score calculated?</div>
+            <div class="faq-answer">
+                <ul>
+                    <li><strong>Completion Rate (40%)</strong> - Issues marked as Done</li>
+                    <li><strong>Overdue Ratio (25%)</strong> - Issues past due date</li>
+                    <li><strong>Blocked Issues (20%)</strong> - Issues in blocked status</li>
+                    <li><strong>Unassigned Tasks (15%)</strong> - Issues without assignee</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do I cancel my subscription?</div>
+            <div class="faq-answer">
+                <p>Go to Atlassian Admin > Manage apps > Find Dashboards Rich Filters > Cancel subscription.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="troubleshoot-section">
+        <h2 class="section-title">Troubleshooting</h2>
+
+        <div class="troubleshoot-item">
+            <h4>Gadget not loading</h4>
+            <p>Try refreshing the page or clearing your browser cache.</p>
+        </div>
+
+        <div class="troubleshoot-item">
+            <h4>No data showing</h4>
+            <p>Ensure you have selected at least one project in the filters and have permission to view it.</p>
+        </div>
+
+        <div class="troubleshoot-item">
+            <h4>Permission errors</h4>
+            <p>Contact your Jira administrator to verify your project permissions.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024-2026 elolin. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Home</a> |
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="terms-of-use.html">Terms of Use</a>
+        </p>
+    </footer>
+</body>
+</html>
