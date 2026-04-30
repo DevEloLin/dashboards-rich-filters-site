@@ -1,0 +1,25 @@
+<!--
+  Dashboards Rich Filters — transparent brand mark (no background).
+  Use on light or dark surfaces (in-app header, favicon, signature blocks).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Dashboards Rich Filters mark">
+  <!-- ECG / Health pulse -->
+  <g stroke="#0052CC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="40,80 80,80 96,56 112,104 128,40 144,80 176,80 200,68 216,80"/>
+  </g>
+  <circle cx="216" cy="80" r="6" fill="#0052CC"/>
+
+  <!-- Bars -->
+  <rect x="58"  y="172" width="22" height="44" rx="4" fill="#00B8D9"/>
+  <rect x="92"  y="156" width="22" height="60" rx="4" fill="#36B37E"/>
+  <rect x="126" y="138" width="22" height="78" rx="4" fill="#FFAB00"/>
+  <rect x="160" y="118" width="22" height="98" rx="4" fill="#FF5630"/>
+
+  <!-- Trend arrow -->
+  <g stroke="#172B4D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="69,172 103,156 137,138 171,118"/>
+    <polygon points="171,118 159,114 165,127" fill="#172B4D" stroke="none"/>
+  </g>
+
+  <line x1="48" y1="220" x2="208" y2="220" stroke="#172B4D" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -90,7 +90,7 @@ All pages include:
 ## Design System
 
 ### Colors
-- Primary: `#0052CC` (Atlassian Blue)
+- Primary: `#0052CC` (Brand blue — chosen for Jira-product visual harmony, not affiliated with Atlassian)
 - Secondary: `#6554C0` (Purple)
 - Accent: `#00B8D9` (Cyan)
 - Success: `#36B37E` (Green)
@@ -126,7 +126,7 @@ Upload all files to any static hosting service:
 
 - **Vendor**: elolin
 - **Email**: dev.elolin@gmail.com
-- **Marketplace**: https://marketplace.atlassian.com/vendors/1227019
+- **Marketplace**: _Listing pending — URL will be added once the app is approved._
 
 ## License
 
@@ -134,4 +134,4 @@ Copyright 2024-2026 elolin. All rights reserved.
 
 ---
 
-Built for Atlassian Marketplace | Dashboards Rich Filters v2.5.1
+Built for Atlassian Marketplace | Dashboards Rich Filters v2.7.1

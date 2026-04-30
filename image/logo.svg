@@ -1,0 +1,61 @@
+<!--
+  Dashboards Rich Filters — Marketplace logo (full color, 256×256 square)
+  Design: gradient rounded-square background (Atlassian blue → purple),
+  white ECG pulse line on top half representing live Health Score, and
+  four ascending bars in brand colors below representing the dashboard
+  charts. The bar group narrows subtly toward the bottom — a quiet nod
+  to the Smart Filter funnel.
+
+  Use cases:
+    • Atlassian Marketplace listing logo (export 144×144 / 512×512 PNG)
+    • Static marketing site favicon / social share card
+    • In-product brand mark
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Dashboards Rich Filters logo">
+  <defs>
+    <linearGradient id="drf-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#0052CC"/>
+      <stop offset="55%" stop-color="#3D5AC9"/>
+      <stop offset="100%" stop-color="#6554C0"/>
+    </linearGradient>
+    <linearGradient id="drf-shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="40%"  stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="drf-soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded-square background -->
+  <rect width="256" height="256" rx="56" ry="56" fill="url(#drf-bg)"/>
+  <!-- Subtle highlight from top -->
+  <rect width="256" height="256" rx="56" ry="56" fill="url(#drf-shine)"/>
+
+  <!-- ECG / Health Score pulse line (top half) -->
+  <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#drf-soft)">
+    <polyline points="40,80 80,80 96,56 112,104 128,40 144,80 176,80 200,68 216,80"/>
+  </g>
+  <!-- Pulse endpoint dot -->
+  <circle cx="216" cy="80" r="5" fill="#ffffff"/>
+
+  <!-- Ascending bar chart (bottom half) — narrowing baseline = filter funnel hint -->
+  <g>
+    <!-- Each bar: x positions slightly tucked inward as bars get taller, -->
+    <!-- producing a subtle inverted-funnel silhouette around the chart.   -->
+    <rect x="58"  y="172" width="22" height="44" rx="4" fill="#00B8D9"/>
+    <rect x="92"  y="156" width="22" height="60" rx="4" fill="#36B37E"/>
+    <rect x="126" y="138" width="22" height="78" rx="4" fill="#FFAB00"/>
+    <rect x="160" y="118" width="22" height="98" rx="4" fill="#FF5630"/>
+  </g>
+
+  <!-- Trend arrow connecting bar tops — reinforces "growth / improvement" -->
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+    <polyline points="69,172 103,156 137,138 171,118"/>
+    <polygon points="171,118 159,114 165,127" fill="#ffffff" stroke="none"/>
+  </g>
+
+  <!-- Baseline — the "table edge" that grounds the chart -->
+  <line x1="48" y1="220" x2="208" y2="220" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round"/>
+</svg>
