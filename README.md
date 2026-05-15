@@ -29,7 +29,7 @@ dashboards-rich-filters-site/
 - Hero section with product introduction
 - Feature highlights (6 key features)
 - Screenshot gallery
-- Pricing section ($366/site/month)
+- Pricing section (free tier + per-user volume pricing)
 - SEO optimized with structured data (JSON-LD)
 - Open Graph and Twitter Card meta tags
 
@@ -134,4 +134,4 @@ Copyright 2024-2026 elolin. All rights reserved.
 
 ---
 
-Built for Atlassian Marketplace | Dashboards Rich Filters v2.7.1
+Built for Atlassian Marketplace | Dashboards Rich Filters v2.7.5
