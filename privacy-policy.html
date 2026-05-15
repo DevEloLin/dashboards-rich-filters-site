@@ -195,156 +195,47 @@
 
     <main class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: April 30, 2026</p>
+        <p class="last-updated">Last Updated: May 15, 2026</p>
 
         <div class="highlight-box">
-            <p><strong>Summary:</strong> Dashboards Rich Filters does NOT collect, store, or transmit any of your Jira data. All data processing happens in real-time within your browser and Atlassian's secure infrastructure.</p>
+            <p><strong>Summary:</strong> Dashboards Rich Filters reads Jira data only in-memory to render dashboards. We do <strong>not</strong> store your Jira issues, users, or any personal data on our infrastructure. The only thing we persist is a single anonymous installation timestamp used for trial bookkeeping.</p>
         </div>
 
-        <h2>1. Introduction</h2>
-        <p>This Privacy Policy describes how elolin ("we", "us", or "our") handles information when you use Dashboards Rich Filters ("the App"), a dashboard gadget for Atlassian Jira Cloud available on the Atlassian Marketplace.</p>
-        <p>We are committed to protecting your privacy and ensuring transparency about our data practices. This policy complies with the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and Atlassian's Marketplace Partner Agreement requirements.</p>
+        <h2>1. Who We Are</h2>
+        <p><strong>elolin</strong> ("we", "us") publishes Dashboards Rich Filters ("the App") for Atlassian Jira Cloud through the Atlassian Marketplace. This policy covers what data the App processes, how, and your rights. Atlassian Pty Ltd hosts the App and acts as a sub-processor; their <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> applies in parallel.</p>
 
-        <h2>2. Data We Access</h2>
-        <p>To provide dashboard functionality, our App requests the following Atlassian scopes:</p>
+        <h2>2. Data We Access (read-only, in-memory)</h2>
+        <p>To render dashboards, the App calls the Atlassian REST API with these read-only scopes: <code>read:jira-work</code>, <code>read:jira-user</code>. This lets us read project, issue, user, sprint, board, component, version and webhook metadata that you can already see in Jira. <strong>Data is processed only in memory during a request and is never persisted by us.</strong></p>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Permission</th>
-                    <th>Purpose</th>
-                    <th>Data Accessed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><code>read:jira-work</code></td>
-                    <td>Display issue statistics and charts</td>
-                    <td>Issues, projects, boards, sprints</td>
-                </tr>
-                <tr>
-                    <td><code>read:jira-user</code></td>
-                    <td>Populate assignee filter dropdown</td>
-                    <td>User display names, account IDs</td>
-                </tr>
-                <tr>
-                    <td><code>read:sprint:jira-software</code></td>
-                    <td>Sprint-based filtering</td>
-                    <td>Sprint names, states, dates</td>
-                </tr>
-                <tr>
-                    <td><code>read:project:jira</code></td>
-                    <td>Project filter functionality</td>
-                    <td>Project names, keys</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>3. Data We Do NOT Collect or Store</h2>
-        <p>We want to be absolutely clear about what we do NOT do:</p>
+        <h2>3. Data We Store</h2>
+        <p>The only data we persist in our backend (Atlassian Forge KVS, hosted on Atlassian infrastructure) is:</p>
         <ul>
-            <li><strong>No Jira Content Storage:</strong> We do not store any Jira issues, comments, attachments, or project content on our servers</li>
-            <li><strong>No External Transmission:</strong> Your data never leaves Atlassian's infrastructure</li>
-            <li><strong>No Analytics on Your Data:</strong> We do not analyze or process your Jira content for any purpose other than rendering it in your dashboard</li>
-            <li><strong>No Third-Party Sharing:</strong> We never share your data with third parties</li>
-            <li><strong>No Cookies for Tracking:</strong> We do not use tracking cookies</li>
-            <li><strong>No Personal Profile Data:</strong> We do not collect names, emails, or any personal information beyond what Atlassian already supplies via its standard APIs</li>
+            <li><code>license:firstSeenAt</code> — a single Unix timestamp (number) per installation, used to track when the 30-day trial began. <strong>No PII, no user identifier, no Jira content.</strong></li>
+        </ul>
+        <p>This record is automatically deleted by Atlassian when you uninstall the App.</p>
+
+        <h2>4. Data We Do NOT Collect</h2>
+        <ul>
+            <li>No Jira issue content, comments, attachments or descriptions</li>
+            <li>No user names, emails, accountIds or profile data</li>
+            <li>No analytics, tracking pixels, cookies or third-party SDKs</li>
+            <li>No payment information (Atlassian Marketplace handles all billing)</li>
         </ul>
 
-        <div class="highlight-box">
-            <p><strong>How It Works:</strong> Your Jira data is fetched in real-time via Atlassian's Forge platform, processed in your browser, and displayed on your dashboard. When you close the dashboard, the data is gone.</p>
-        </div>
+        <h2>5. Data Location &amp; Retention</h2>
+        <p>All processing happens within Atlassian's cloud regions; no data leaves Atlassian's infrastructure. The only stored item (the install timestamp) is retained until you uninstall the App, after which Atlassian removes it automatically.</p>
 
-        <h2>3a. Minimal Data We Do Store (Forge Key-Value Store)</h2>
-        <p>To support our 30-day free trial, the App stores <strong>one single value per Atlassian site</strong> inside Atlassian's Forge Key-Value Store (KVS), which is hosted entirely within Atlassian's own infrastructure. Specifically:</p>
-        <ul>
-            <li><strong>Key:</strong> <code>license:firstSeenAt</code></li>
-            <li><strong>Value:</strong> A Unix timestamp (number) recording the first time the App was opened on the site</li>
-            <li><strong>Purpose:</strong> Calculating remaining free-trial days when no Atlassian Marketplace license is yet attached</li>
-            <li><strong>Personal data:</strong> None &mdash; the value is a single timestamp and contains no user identifier, IP address, or any other identifying information</li>
-            <li><strong>Retention:</strong> Removed automatically when the App is uninstalled (Forge platform deletes all KVS data on uninstall)</li>
-        </ul>
+        <h2>6. Your Rights (GDPR / CCPA)</h2>
+        <p>Because we do not store personal data, most data-subject requests (access, deletion, portability) are not applicable to us. To delete the only record we hold, simply uninstall the App. For requests relating to Jira data itself, please contact Atlassian, who is the data controller for Jira content. You may also email us at <a href="mailto:dev.elolin@gmail.com">dev.elolin@gmail.com</a>.</p>
 
-        <h2>4. Data Processing Location</h2>
-        <p>Our App runs entirely on Atlassian Forge, which means:</p>
-        <ul>
-            <li>All code executes within Atlassian's secure cloud infrastructure</li>
-            <li>Data processing complies with Atlassian's security standards</li>
-            <li>No data is transferred to external servers</li>
-            <li>Processing occurs in the same region as your Atlassian instance</li>
-        </ul>
-
-        <h2>5. Data Retention</h2>
-        <p>The only persistent value we store (the trial timestamp described in Section 3a) is removed automatically by Atlassian when you uninstall the App. All Jira data the App processes is:</p>
-        <ul>
-            <li>Fetched when you load the dashboard</li>
-            <li>Displayed in your browser temporarily</li>
-            <li>Discarded when you navigate away or close the browser</li>
-        </ul>
-
-        <h2>6. Your Rights Under GDPR</h2>
-        <p>If you are located in the European Economic Area (EEA), you have the following rights:</p>
-        <ul>
-            <li><strong>Right to Access:</strong> Since we don't store data, there is no data to access</li>
-            <li><strong>Right to Rectification:</strong> Not applicable as we don't store data</li>
-            <li><strong>Right to Erasure:</strong> Not applicable as we don't store data</li>
-            <li><strong>Right to Restrict Processing:</strong> You can uninstall the App at any time</li>
-            <li><strong>Right to Data Portability:</strong> Not applicable as we don't store data</li>
-            <li><strong>Right to Object:</strong> You can uninstall the App at any time</li>
-        </ul>
-
-        <h2>7. Your Rights Under CCPA</h2>
-        <p>If you are a California resident, you have the right to:</p>
-        <ul>
-            <li>Know what personal information is collected (we collect none)</li>
-            <li>Request deletion of personal information (not applicable)</li>
-            <li>Opt-out of the sale of personal information (we do not sell data)</li>
-            <li>Non-discrimination for exercising your rights</li>
-        </ul>
+        <h2>7. Security &amp; Subprocessors</h2>
+        <p>The App runs entirely on the Atlassian Forge platform — a sandboxed runtime that Atlassian operates with industry-standard security controls (see <a href="https://www.atlassian.com/trust" target="_blank" rel="noopener">Atlassian Trust Center</a>). All traffic uses HTTPS. <strong>Atlassian Pty Ltd is our only subprocessor</strong> — we do not use any analytics SDK, error-tracking SaaS, CDN or payment processor.</p>
 
         <h2>8. Children's Privacy</h2>
-        <p>Our App is designed for business use and is not directed at children under 16. We do not knowingly collect information from children.</p>
+        <p>The App is intended for business use and is not directed at children under 16.</p>
 
-        <h2>9. Security</h2>
-        <p>Security measures in place:</p>
-        <ul>
-            <li>The App runs entirely on the Atlassian Forge platform, which Atlassian operates with industry-recognised security controls (including SOC 2 Type II certification at the platform level — see Atlassian's <a href="https://www.atlassian.com/trust" target="_blank" rel="noopener">Trust Center</a>). elolin does not independently hold these certifications.</li>
-            <li>All communications use HTTPS encryption (terminated by Atlassian's infrastructure).</li>
-            <li>The App makes no calls to servers outside Atlassian's environment.</li>
-            <li>The App is subject to Atlassian Marketplace security review prior to listing.</li>
-        </ul>
-
-        <h2>10. Third-Party Services & Subprocessors</h2>
-        <p>The App does not call any third-party services. The only platform involved in operating the App is <strong>Atlassian (Atlassian Pty Ltd and its affiliates)</strong>, which acts as our hosting provider and the operator of the Jira Cloud API. Atlassian's processing of your data is governed by Atlassian's own <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://www.atlassian.com/legal/data-processing-addendum" target="_blank" rel="noopener">Data Processing Addendum</a>.</p>
-        <p>We do not use any other subprocessor (no analytics SDK, no error-tracking SaaS, no CDN outside Atlassian, no payment processor — Atlassian Marketplace handles billing).</p>
-
-        <h2>11. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be:</p>
-        <ul>
-            <li>Posted on this page with an updated "Last Updated" date</li>
-            <li>Communicated via Atlassian Marketplace update notes for significant changes</li>
-        </ul>
-
-        <h2>12. Contact Us</h2>
-        <p>If you have questions about this Privacy Policy or our data practices, please contact us:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:dev.elolin@gmail.com">dev.elolin@gmail.com</a></li>
-            <li><strong>Vendor Page:</strong> <a href="https://marketplace.atlassian.com/vendors/533206880/" target="_blank" rel="noopener">Atlassian Marketplace — elolin</a></li>
-        </ul>
-
-        <h2>13. Atlassian Marketplace Compliance</h2>
-        <p>This App is built and listed in accordance with:</p>
-        <ul>
-            <li>Atlassian Marketplace Partner Agreement</li>
-            <li>Atlassian Cloud Application Security Requirements</li>
-            <li>Atlassian Forge platform security model (sandboxed runtime, scoped permissions)</li>
-            <li>GDPR (EU 2016/679) and CCPA where applicable to elolin's role as data processor</li>
-        </ul>
-        <p><em>Note: certifications such as SOC 2, ISO 27001 cited above belong to the underlying Atlassian Forge platform, not to elolin as an independent entity.</em></p>
-
-        <div class="highlight-box">
-            <p><strong>Questions?</strong> We're happy to answer any privacy-related questions. Email us at <a href="mailto:dev.elolin@gmail.com">dev.elolin@gmail.com</a></p>
-        </div>
+        <h2>9. Changes &amp; Contact</h2>
+        <p>We may update this policy; the "Last Updated" date above always reflects the current version. Material changes will be communicated via the Atlassian Marketplace listing. Questions? Email <a href="mailto:dev.elolin@gmail.com">dev.elolin@gmail.com</a> or visit our <a href="https://marketplace.atlassian.com/vendors/533206880/" target="_blank" rel="noopener">Atlassian Marketplace vendor page</a>.</p>
     </main>
 
     <footer>
