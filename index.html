@@ -3,71 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dashboards Rich Filters - A Jira Cloud dashboard gadget providing Project Health Dashboard, Issue Trends, Sprint Progress, Project Milestones, and Risk Analysis visualizations.">
-    <meta name="keywords" content="Jira, Dashboard, Atlassian, Forge, Project Management, Sprint, Milestones, Risk Analysis, Ishikawa">
+    <meta name="description" content="Dashboards Rich Filters — A premium Jira Cloud dashboard gadget delivering Project Health, Issue Trends, Sprint Progress, Milestones, Risk Analysis, and rich multi-dimensional filtering. Built on Atlassian Forge.">
+    <meta name="keywords" content="Jira, Dashboard, Atlassian, Forge, Project Management, Sprint, Milestones, Risk Analysis, Ishikawa, Rich Filters">
     <meta name="author" content="elolin">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Dashboards Rich Filters - Jira Cloud Dashboard Gadget">
-    <meta property="og:description" content="Visualize Jira project data with health dashboards, issue trends, sprint progress, milestones, and risk analysis.">
+    <meta property="og:title" content="Dashboards Rich Filters — Premium Jira Cloud Dashboard Gadget">
+    <meta property="og:description" content="Turn raw Jira data into executive-ready insight — health, trends, sprint, milestones, risk, and rich multi-dimensional filters in a single Forge gadget.">
     <meta property="og:image" content="image/logo-512.png">
     <link rel="canonical" href="https://develolin.github.io/dashboards-rich-filters-site/">
-    <title>Dashboards Rich Filters - Jira Cloud Dashboard Gadget</title>
+    <title>Dashboards Rich Filters — Premium Jira Cloud Dashboard Gadget</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0052CC;
-            --secondary: #6554C0;
-            --accent: #00B8D9;
-            --success: #36B37E;
-            --warning: #FFAB00;
-            --dark: #172B4D;
-            --light: #F4F5F7;
-            --white: #FFFFFF;
+            --ink:        #0B1B2B;
+            --ink-soft:   #243A52;
+            --muted:      #5C6B80;
+            --line:       #E4E8EE;
+            --paper:      #FAFBFC;
+            --paper-2:    #F2F4F7;
+            --white:      #FFFFFF;
+            --brand:      #0052CC;
+            --brand-2:    #2B5BD7;
+            --gold:       #C8A24B;
+            --gold-soft:  #E8D9B0;
+            --shadow-sm:  0 1px 3px rgba(11,27,43,.06), 0 4px 12px rgba(11,27,43,.04);
+            --shadow-md:  0 4px 16px rgba(11,27,43,.08), 0 12px 40px rgba(11,27,43,.06);
+            --shadow-lg:  0 12px 40px rgba(11,27,43,.10), 0 24px 80px rgba(11,27,43,.10);
+            --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans:       'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: var(--dark); }
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.98); z-index: 1000; padding: 1rem 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        nav .container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.25rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 500; }
-        nav a:hover { color: var(--primary); }
-        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); padding: 8rem 2rem 5rem; color: var(--white); }
-        .hero .container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
-        .hero img { width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-        .btn { display: inline-block; padding: 0.875rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
-        .btn-primary { background: var(--white); color: var(--primary); }
-        .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); margin-left: 0.75rem; }
-        .features { padding: 5rem 2rem; background: var(--light); }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; color: var(--dark); }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 3rem; }
-        .features-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
-        .feature-card { background: var(--white); padding: 1.75rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-        .feature-card h3 { font-size: 1.125rem; margin-bottom: 0.5rem; color: var(--dark); }
-        .feature-card p { color: #555; font-size: 0.95rem; }
-        .screenshots { padding: 5rem 2rem; }
-        .screenshots-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: start; }
-        .screenshot-card { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-        .screenshot-card img { width: 100%; height: auto; display: block; }
-        .screenshot-card figcaption { padding: 1rem; background: var(--light); font-size: 0.9rem; text-align: center; }
-        .cta { padding: 4rem 2rem; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); text-align: center; color: var(--white); }
-        .cta h2 { font-size: 1.75rem; margin-bottom: 1rem; }
-        .cta p { margin-bottom: 1.5rem; opacity: 0.95; }
-        footer { background: var(--dark); color: var(--white); padding: 3rem 2rem 1.5rem; }
-        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .footer-col h4 { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--accent); }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--sans); line-height: 1.65; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+        a { color: var(--brand); text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- Nav ---------- */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,.92); backdrop-filter: saturate(140%) blur(12px); -webkit-backdrop-filter: saturate(140%) blur(12px); z-index: 1000; border-bottom: 1px solid var(--line); }
+        nav .container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: inline-flex; align-items: center; gap: .65rem; color: var(--ink); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+        .logo img { width: 30px; height: 30px; border-radius: 7px; }
+        nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
+        nav a { color: var(--ink-soft); font-weight: 500; font-size: .95rem; transition: color .2s; }
+        nav a:hover { color: var(--brand); }
+        nav .nav-cta { padding: .55rem 1.1rem; background: var(--ink); color: var(--white); border-radius: 999px; font-weight: 600; font-size: .9rem; transition: background .2s; }
+        nav .nav-cta:hover { background: var(--brand); color: var(--white); }
+
+        /* ---------- Hero ---------- */
+        .hero { padding: 9rem 2rem 6rem; background:
+            radial-gradient(1200px 600px at 80% -10%, rgba(43,91,215,.10), transparent 60%),
+            radial-gradient(900px 500px at 0% 100%, rgba(200,162,75,.08), transparent 60%),
+            linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 100%);
+        }
+        .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 1fr; gap: 4rem; align-items: center; }
+        .hero .eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+        .hero .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+        .hero h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.4rem, 4.8vw, 3.75rem); line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 1.5rem; }
+        .hero h1 em { font-style: italic; color: var(--brand); font-weight: 500; }
+        .hero .lede { font-size: 1.18rem; line-height: 1.65; color: var(--muted); margin-bottom: 2rem; max-width: 38rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; align-items: center; }
+        .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 1.6rem; border-radius: 8px; font-weight: 600; font-size: .98rem; letter-spacing: -.005em; transition: transform .15s, box-shadow .15s, background .2s; cursor: pointer; border: 0; font-family: inherit; }
+        .btn-primary { background: var(--ink); color: var(--white); box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--brand); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+        .btn-ghost:hover { border-color: var(--ink); }
+        .hero-meta { margin-top: 2.5rem; display: flex; gap: 2rem; flex-wrap: wrap; color: var(--muted); font-size: .88rem; }
+        .hero-meta span { display: inline-flex; align-items: center; gap: .4rem; }
+        .hero-meta strong { color: var(--ink); font-weight: 600; }
+        .hero-visual { position: relative; }
+        .hero-visual::before { content: ""; position: absolute; inset: -1.5rem -1.5rem -1.5rem 1.5rem; background: linear-gradient(135deg, rgba(43,91,215,.12), rgba(200,162,75,.10)); border-radius: 24px; z-index: 0; }
+        .hero-visual img { position: relative; z-index: 1; border-radius: 14px; box-shadow: var(--shadow-lg); border: 1px solid rgba(11,27,43,.05); }
+
+        /* ---------- Trust strip ---------- */
+        .trust { padding: 2.25rem 2rem; background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .trust-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: .75rem; color: var(--ink-soft); font-size: .92rem; font-weight: 500; }
+        .trust-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+        .trust-item strong { color: var(--ink); font-weight: 700; }
+
+        /* ---------- Section base ---------- */
+        section { padding: 7rem 2rem; }
+        .section-head { max-width: 760px; margin: 0 auto 5rem; text-align: center; }
+        .section-eyebrow { display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-bottom: 1rem; padding: .35rem .85rem; background: rgba(43,91,215,.08); border-radius: 999px; }
+        .section-title { font-family: var(--serif); font-weight: 600; font-size: clamp(1.85rem, 3.4vw, 2.65rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.08rem; color: var(--muted); line-height: 1.7; }
+
+        /* ---------- Showcase (image + article rows) ---------- */
+        .showcase { background: var(--paper); }
+        .showcase-row { max-width: 1200px; margin: 0 auto 6rem; display: grid; grid-template-columns: 1.15fr 1fr; gap: 4rem; align-items: center; }
+        .showcase-row:last-child { margin-bottom: 0; }
+        .showcase-row.reverse { grid-template-columns: 1fr 1.15fr; }
+        .showcase-row.reverse .showcase-visual { order: 2; }
+        .showcase-row.reverse .showcase-text { order: 1; }
+        .showcase-visual { position: relative; }
+        .showcase-visual .frame { position: relative; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line); background: var(--white); }
+        .showcase-visual .frame img { width: 100%; height: auto; display: block; }
+        .showcase-visual .accent { position: absolute; width: 80px; height: 80px; border: 2px solid var(--gold); border-radius: 14px; }
+        .showcase-row .accent { top: -18px; left: -18px; }
+        .showcase-row.reverse .accent { top: -18px; right: -18px; left: auto; }
+        .showcase-text .number { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1rem; color: var(--gold); letter-spacing: .15em; margin-bottom: .85rem; display: block; }
+        .showcase-text h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.5rem, 2.4vw, 1.95rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 1.1rem; }
+        .showcase-text .lead { font-size: 1.05rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 1.25rem; }
+        .showcase-text p { font-size: .98rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+        .showcase-text .pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+        .showcase-text .pill { font-size: .8rem; font-weight: 500; color: var(--ink-soft); padding: .35rem .75rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; }
+
+        /* ---------- Features grid ---------- */
+        .features { background: var(--white); }
+        .features-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .feature { padding: 2rem 1.75rem; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; transition: transform .2s, box-shadow .2s, border-color .2s; }
+        .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: transparent; }
+        .feature .icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: var(--white); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-family: var(--serif); font-size: 1.1rem; margin-bottom: 1.1rem; }
+        .feature h4 { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: .55rem; }
+        .feature p { font-size: .93rem; color: var(--muted); line-height: 1.65; }
+
+        /* ---------- Pricing ---------- */
+        .pricing { background:
+            linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 100%);
+        }
+        .pricing-card { max-width: 980px; margin: 0 auto; background: var(--white); border-radius: 18px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); overflow: hidden; }
+        .pricing-head { padding: 2rem 2.25rem; background: linear-gradient(135deg, var(--ink), var(--ink-soft)); color: var(--white); display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1rem; }
+        .pricing-head > div { font-weight: 600; font-size: .92rem; letter-spacing: .04em; text-transform: uppercase; }
+        .pricing-row { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1rem; padding: 1.1rem 2.25rem; border-top: 1px solid var(--line); align-items: center; transition: background .15s; }
+        .pricing-row:hover { background: var(--paper); }
+        .pricing-row.free { background: linear-gradient(90deg, rgba(54,179,126,.08), transparent); }
+        .pricing-row.free .col-1::after { content: "Free Tier"; font-size: .72rem; font-weight: 700; padding: .15rem .55rem; background: #36B37E; color: var(--white); border-radius: 999px; margin-left: .65rem; }
+        .pricing-row .col-1 { font-weight: 600; color: var(--ink); }
+        .pricing-row .col-2 { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); font-weight: 600; }
+        .pricing-row .col-3 { color: var(--muted); font-size: .92rem; }
+        .pricing-foot { padding: 1.5rem 2.25rem; background: var(--paper); border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; text-align: center; line-height: 1.7; }
+
+        /* ---------- CTA ---------- */
+        .cta { background: var(--ink); color: var(--white); text-align: center; padding: 6rem 2rem; position: relative; overflow: hidden; }
+        .cta::before { content: ""; position: absolute; inset: 0; background:
+            radial-gradient(700px 350px at 20% 20%, rgba(43,91,215,.25), transparent 60%),
+            radial-gradient(600px 300px at 80% 80%, rgba(200,162,75,.15), transparent 60%);
+            pointer-events: none;
+        }
+        .cta-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+        .cta h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.85rem, 3.4vw, 2.65rem); line-height: 1.2; margin-bottom: 1rem; }
+        .cta p { color: rgba(255,255,255,.75); font-size: 1.08rem; margin-bottom: 2rem; }
+        .cta .btn-primary { background: var(--white); color: var(--ink); }
+        .cta .btn-primary:hover { background: var(--gold); color: var(--ink); }
+        .cta .btn-ghost { color: var(--white); border-color: rgba(255,255,255,.3); }
+        .cta .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+        /* ---------- Footer ---------- */
+        footer { background: #060F1A; color: rgba(255,255,255,.65); padding: 4.5rem 2rem 2rem; }
+        .footer-grid { max-width: 1200px; margin: 0 auto 3rem; display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 2.5rem; }
+        .footer-brand { color: var(--white); }
+        .footer-brand .logo { color: var(--white); margin-bottom: 1rem; }
+        .footer-brand p { font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.7; max-width: 22rem; }
+        .footer-col h4 { color: var(--white); font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1rem; }
         .footer-col ul { list-style: none; }
-        .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; display: block; padding: 0.25rem 0; font-size: 0.9rem; }
+        .footer-col li { margin-bottom: .55rem; }
+        .footer-col a { color: rgba(255,255,255,.6); font-size: .92rem; transition: color .15s; }
         .footer-col a:hover { color: var(--white); }
-        .footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem; }
-        @media (max-width: 768px) {
-            .hero .container { grid-template-columns: 1fr; text-align: center; }
-            .hero img { order: -1; margin-bottom: 1.5rem; }
-            nav ul { display: none; }
-            .screenshots-grid { grid-template-columns: 1fr; }
-            .btn-secondary { margin-left: 0; margin-top: 0.5rem; display: block; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .85rem; color: rgba(255,255,255,.45); }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 960px) {
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-visual::before { display: none; }
+            .showcase-row, .showcase-row.reverse { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4.5rem; }
+            .showcase-row.reverse .showcase-visual,
+            .showcase-row.reverse .showcase-text { order: initial; }
+            .pricing-head, .pricing-row { grid-template-columns: 1.4fr 1fr 1fr; padding-left: 1.25rem; padding-right: 1.25rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 5rem 1.5rem; }
+            nav .container { padding: .85rem 1.25rem; }
+            nav ul { gap: 1rem; }
+            nav ul li:not(:last-child) { display: none; }
+        }
+        @media (max-width: 560px) {
+            .pricing-head, .pricing-row { font-size: .88rem; padding: .9rem 1rem; }
+            .pricing-row .col-2 { font-size: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-meta { gap: 1rem; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="image/favicon.svg">
@@ -75,175 +191,331 @@
     <link rel="apple-touch-icon" href="image/logo-144.png">
 </head>
 <body>
+
     <nav>
         <div class="container">
-            <a href="index.html" class="logo" style="display:inline-flex;align-items:center;gap:.5rem;">
-                <img src="image/favicon.svg" alt="" width="28" height="28" style="display:block;border-radius:6px;">
+            <a href="index.html" class="logo">
+                <img src="image/favicon.svg" alt="">
                 <span>Dashboards Rich Filters</span>
             </a>
             <ul>
+                <li><a href="#showcase">Capabilities</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#screenshots">Screenshots</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="documentation.html">Documentation</a></li>
+                <li><a href="documentation.html">Docs</a></li>
                 <li><a href="support.html">Support</a></li>
+                <li><a href="https://marketplace.atlassian.com/vendors/533206880/" class="nav-cta" target="_blank" rel="noopener">Get on Marketplace</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- ============== HERO ============== -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-inner">
             <div>
-                <h1>Visualize Your Jira Project Data</h1>
-                <p>A Jira Cloud dashboard gadget built on Atlassian Forge. View project health, issue trends, sprint progress, milestones, and risk analysis in one place.</p>
-                <a href="https://marketplace.atlassian.com/vendors/533206880/" class="btn btn-primary" target="_blank" rel="noopener" title="Visit our Atlassian Marketplace vendor page">View on Marketplace</a>
-                <a href="documentation.html" class="btn btn-secondary">Documentation</a>
+                <div class="eyebrow">Atlassian Forge · Cloud-native Gadget</div>
+                <h1>Turn Jira data into <em>executive-ready</em> insight.</h1>
+                <p class="lede">A premium dashboard gadget for Jira Cloud — engineered on Atlassian Forge to surface project health, sprint velocity, milestones, and risk signals through a single, sophisticated interface.</p>
+                <div class="hero-actions">
+                    <a href="https://marketplace.atlassian.com/vendors/533206880/" class="btn btn-primary" target="_blank" rel="noopener">View on Marketplace →</a>
+                    <a href="documentation.html" class="btn btn-ghost">Read the Docs</a>
+                </div>
+                <div class="hero-meta">
+                    <span><strong>Free</strong> for teams up to 10</span>
+                    <span><strong>30-day</strong> free trial</span>
+                    <span><strong>Forge-native</strong> · zero egress</span>
+                </div>
             </div>
-            <div>
-                <img src="image/dashboard1.png" alt="Dashboards Rich Filters showing project health overview">
+            <div class="hero-visual">
+                <img src="image/dashboard1.png" alt="Dashboards Rich Filters showing project health overview in Jira">
             </div>
         </div>
     </section>
 
-    <section class="features" id="features">
-        <h2 class="section-title">Features</h2>
-        <p class="section-subtitle">Dashboard modules designed for project visibility</p>
-        <div class="features-grid">
-            <div class="feature-card">
+    <!-- ============== TRUST STRIP ============== -->
+    <div class="trust">
+        <div class="trust-inner">
+            <div class="trust-item"><span class="dot"></span><strong>Built on Atlassian Forge</strong> — runs in Atlassian's secure sandbox</div>
+            <div class="trust-item"><span class="dot"></span><strong>Read-only scopes</strong> — your data never leaves Atlassian</div>
+            <div class="trust-item"><span class="dot"></span><strong>Billed by Atlassian</strong> — single invoice, zero friction</div>
+        </div>
+    </div>
+
+    <!-- ============== SHOWCASE (image + article) ============== -->
+    <section class="showcase" id="showcase">
+        <div class="section-head">
+            <span class="section-eyebrow">The Product</span>
+            <h2 class="section-title">Six dashboards. One unified view.</h2>
+            <p class="section-subtitle">Each module is purposefully designed to answer a specific question your stakeholders ask — without leaving the Jira dashboard.</p>
+        </div>
+
+        <!-- 1. Project Health Dashboard -->
+        <div class="showcase-row">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/dashboard2.png" alt="Project Health Dashboard view">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <span class="number">— 01 / Health</span>
                 <h3>Project Health Dashboard</h3>
-                <p>View overall project health metrics including completion rates, overdue issues, blocked items, and unassigned tasks in a consolidated dashboard.</p>
+                <p class="lead">A single source of truth for the question every PM dreads: <em>"Where do we actually stand?"</em></p>
+                <p>Aggregates completion rates, overdue items, blocked tickets, and unassigned work into a consolidated scorecard. Color-coded indicators surface what needs attention before the next stand-up — eliminating the manual JQL queries that drain twenty minutes from every status meeting.</p>
+                <div class="pills">
+                    <span class="pill">Completion %</span>
+                    <span class="pill">Overdue tracking</span>
+                    <span class="pill">Blocker detection</span>
+                    <span class="pill">Workload signals</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Recent Activity</h3>
-                <p>Track recent issue updates, status changes, and team activity to stay informed about project progress.</p>
+        </div>
+
+        <!-- 2. Portfolio Overview -->
+        <div class="showcase-row reverse">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/pmo1.png" alt="Portfolio overview dashboard">
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Issue Trends</h3>
-                <p>Visualize issue creation and resolution trends over time to identify patterns and potential bottlenecks.</p>
+            <div class="showcase-text">
+                <span class="number">— 02 / Portfolio</span>
+                <h3>Portfolio Overview for PMOs</h3>
+                <p class="lead">When you steward ten projects, scrolling through ten Jira boards isn't a strategy — it's a tax.</p>
+                <p>Portfolio Overview rolls up multi-project status, resource allocation, and delivery pace into one consolidated panel. Drill from the portfolio view straight into the underlying issues with a single click — keeping leadership conversations focused on outcomes rather than ticket archaeology.</p>
+                <div class="pills">
+                    <span class="pill">Multi-project rollup</span>
+                    <span class="pill">Click-through to issues</span>
+                    <span class="pill">PMO-ready</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Sprint Progress</h3>
-                <p>Monitor active sprint progress with burndown visualization, story point tracking, and completion status.</p>
+        </div>
+
+        <!-- 3. Risk Analysis (Ishikawa) -->
+        <div class="showcase-row">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/project-risk-ishikawa.png" alt="Ishikawa Risk Analysis fishbone diagram">
+                </div>
             </div>
-            <div class="feature-card">
+            <div class="showcase-text">
+                <span class="number">— 03 / Risk</span>
+                <h3>Risk Analysis · Ishikawa Diagram</h3>
+                <p class="lead">A boardroom-grade fishbone for the risks hiding in your backlog.</p>
+                <p>Categorizes signals across <strong>People, Process, Quality, and Schedule</strong> — automatically derived from issue patterns such as bug fix rate, blocked items, and sprint slippage. The result is a visual conversation starter your engineering leads can take into a steering committee without rebuilding the slide.</p>
+                <p style="font-size:.88rem; color:var(--gold); font-style:italic;">Note: Risk analysis is provided as a reference tool and should be validated by project teams.</p>
+                <div class="pills">
+                    <span class="pill">4M categorization</span>
+                    <span class="pill">Auto-aggregated signals</span>
+                    <span class="pill">Boardroom-ready</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Project Milestones -->
+        <div class="showcase-row reverse">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/project-milestones-1.png" alt="Project Milestones release timeline">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <span class="number">— 04 / Milestones</span>
+                <h3>Release Timeline & Milestones</h3>
+                <p class="lead">Every release deserves a clear story arc — not a spreadsheet.</p>
+                <p>Visualizes upcoming, overdue, and released milestones along a chronological timeline anchored to today. Counters surface the totals that matter — <strong>20 total · 20 upcoming · 20 overdue · 0 released</strong> — paired with a scrollable list of versions ready for grooming or executive review.</p>
+                <div class="pills">
+                    <span class="pill">Timeline view</span>
+                    <span class="pill">Overdue surfacing</span>
+                    <span class="pill">Release-aware</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Statistics by Components -->
+        <div class="showcase-row">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/statistics-by-components.png" alt="Statistics by Components breakdown">
+                </div>
+            </div>
+            <div class="showcase-text">
+                <span class="number">— 05 / Components</span>
                 <h3>Statistics by Components</h3>
-                <p>Break down issue statistics by component to understand workload distribution across different areas of your project.</p>
+                <p class="lead">Workload concentration is the silent killer of velocity. Visualize it.</p>
+                <p>Decomposes your project into its component teams or modules, surfacing distribution across status, priority, and assignee in a single sortable matrix. Identify which corner of the codebase is carrying the load — and which is being neglected — long before retrospectives reveal it the hard way.</p>
+                <div class="pills">
+                    <span class="pill">Component breakdown</span>
+                    <span class="pill">Workload signals</span>
+                    <span class="pill">Sortable matrix</span>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Project Milestones</h3>
-                <p>Track key project milestones and deliverables with timeline visualization and progress indicators.</p>
+        </div>
+
+        <!-- 6. Time Spent by Assignee -->
+        <div class="showcase-row reverse">
+            <div class="showcase-visual">
+                <span class="accent"></span>
+                <div class="frame">
+                    <img src="image/time-spent-by-assignee.png" alt="Time Spent by Assignee distribution chart">
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Project Risk Analysis (Ishikawa)</h3>
-                <p>Identify potential project risks using fishbone (Ishikawa) diagram visualization. Note: Risk analysis is provided as a reference tool and should be validated by project teams.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Multi-Select Filters</h3>
-                <p>Filter dashboard data by projects, assignees, priorities, and statuses. Filters generate JQL queries automatically.</p>
+            <div class="showcase-text">
+                <span class="number">— 06 / Effort</span>
+                <h3>Time Spent by Assignee</h3>
+                <p class="lead">Where the hours actually went — visualized in a single elegant chart.</p>
+                <p>Aggregates Jira worklogs by team member, exposing effort distribution across the people doing the work. Catch silent overload, surface unbilled time, and rebalance the next sprint with data instead of intuition. Filter by time range — last 7 days, 30 days, this quarter, or any custom window.</p>
+                <div class="pills">
+                    <span class="pill">Worklog aggregation</span>
+                    <span class="pill">Per-assignee view</span>
+                    <span class="pill">Custom time ranges</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="screenshots" id="screenshots">
-        <h2 class="section-title">Screenshots</h2>
-        <p class="section-subtitle">See the dashboard modules in action</p>
-        <div class="screenshots-grid">
-            <figure class="screenshot-card">
-                <img src="image/dashboard2.png" alt="Project Health Dashboard view">
-                <figcaption>Project Health Dashboard</figcaption>
-            </figure>
-            <figure class="screenshot-card">
-                <img src="image/pmo1.png" alt="Portfolio overview dashboard">
-                <figcaption>Portfolio Overview</figcaption>
-            </figure>
-            <figure class="screenshot-card">
-                <img src="image/project-risk-ishikawa.png" alt="Ishikawa Risk Analysis diagram">
-                <figcaption>Risk Analysis (Ishikawa Diagram)</figcaption>
-            </figure>
-            <figure class="screenshot-card">
-                <img src="image/project-milestones-1.png" alt="Project Milestones timeline">
-                <figcaption>Project Milestones</figcaption>
-            </figure>
-            <figure class="screenshot-card">
-                <img src="image/statistics-by-components.png" alt="Statistics by Components table view">
-                <figcaption>Statistics by Components</figcaption>
-            </figure>
-            <figure class="screenshot-card">
-                <img src="image/time-spent-by-assignee.png" alt="Time spent by assignee chart">
-                <figcaption>Time Spent by Assignee</figcaption>
-            </figure>
+    <!-- ============== FEATURES (mosaic) ============== -->
+    <section class="features" id="features">
+        <div class="section-head">
+            <span class="section-eyebrow">The Engine</span>
+            <h2 class="section-title">Rich filtering, applied everywhere.</h2>
+            <p class="section-subtitle">A single filter panel powers every chart in the gadget — change one selection and every visualization re-renders in step.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="icon">★</div>
+                <h4>Multi-Select Filters</h4>
+                <p>Filter by projects, assignees, priorities, and statuses simultaneously. Selections compile to JQL automatically.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⤳</div>
+                <h4>Cross-Chart Sync</h4>
+                <p>Every chart on the dashboard shares the same filter state. One click updates the whole view.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⏱</div>
+                <h4>Smart Time Ranges</h4>
+                <p>Last 7 days, 30 days, 90 days, this year, or a custom date window — applied across every visualization.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">▦</div>
+                <h4>Recent Activity Feed</h4>
+                <p>Stay current with a chronological stream of issue updates, status changes, and team movement.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⏶</div>
+                <h4>Issue Trends</h4>
+                <p>Created vs. resolved over time — spot patterns, surface bottlenecks, and forecast outcomes earlier.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <h4>Sprint Progress</h4>
+                <p>Active sprint burndown, story-point completion, and velocity trends in a compact, glanceable card.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🛡</div>
+                <h4>Forge-Native Security</h4>
+                <p>Runs in Atlassian's sandbox. Read-only scopes. No external egress. No customer data leaves Atlassian.</p>
+            </div>
+            <div class="feature">
+                <div class="icon">⤓</div>
+                <h4>PDF Export</h4>
+                <p>Generate a polished PDF report from any dashboard view — ready for steering committees and stakeholders.</p>
+            </div>
         </div>
     </section>
 
-    <section class="pricing" id="pricing" style="background:#f4f5f7;padding:5rem 2rem;">
-        <h2 class="section-title">Pricing</h2>
-        <p class="section-subtitle">Free for small teams · volume discounts at every tier</p>
-        <div style="max-width:920px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 6px 24px rgba(9,30,66,.08);overflow:hidden;">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid #ebecf0;background:#0052cc;color:#fff;font-weight:600;">
-                <div style="padding:14px 18px;">Users</div>
-                <div style="padding:14px 18px;">Per user / month (USD)</div>
-                <div style="padding:14px 18px;">Up to (USD / month)</div>
+    <!-- ============== PRICING ============== -->
+    <section class="pricing" id="pricing">
+        <div class="section-head">
+            <span class="section-eyebrow">Pricing</span>
+            <h2 class="section-title">Simple per-user pricing. Free for small teams.</h2>
+            <p class="section-subtitle">Volume discounts at every tier. Billed monthly through the Atlassian Marketplace alongside your other Cloud apps.</p>
+        </div>
+        <div class="pricing-card">
+            <div class="pricing-head">
+                <div>Users</div>
+                <div>Per user / month</div>
+                <div>Up to (USD / month)</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;background:#e3fcef;font-weight:600;">
-                <div style="padding:14px 18px;">Up to 10 users</div>
-                <div style="padding:14px 18px;">Free</div>
-                <div style="padding:14px 18px;">$0</div>
+            <div class="pricing-row free">
+                <div class="col-1">Up to 10 users</div>
+                <div class="col-2">Free</div>
+                <div class="col-3">$0</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;">
-                <div style="padding:14px 18px;">11 – 100</div>
-                <div style="padding:14px 18px;">$0.91</div>
-                <div style="padding:14px 18px;">$91.00</div>
+            <div class="pricing-row">
+                <div class="col-1">11 – 100</div>
+                <div class="col-2">$0.91</div>
+                <div class="col-3">$91.00</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;background:#fafbfc;">
-                <div style="padding:14px 18px;">101 – 250</div>
-                <div style="padding:14px 18px;">$0.77</div>
-                <div style="padding:14px 18px;">$206.50</div>
+            <div class="pricing-row">
+                <div class="col-1">101 – 250</div>
+                <div class="col-2">$0.77</div>
+                <div class="col-3">$206.50</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;">
-                <div style="padding:14px 18px;">251 – 1,000</div>
-                <div style="padding:14px 18px;">$0.64</div>
-                <div style="padding:14px 18px;">$686.50</div>
+            <div class="pricing-row">
+                <div class="col-1">251 – 1,000</div>
+                <div class="col-2">$0.64</div>
+                <div class="col-3">$686.50</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;background:#fafbfc;">
-                <div style="padding:14px 18px;">1,001 – 2,500</div>
-                <div style="padding:14px 18px;">$0.58</div>
-                <div style="padding:14px 18px;">$1,556.50</div>
+            <div class="pricing-row">
+                <div class="col-1">1,001 – 2,500</div>
+                <div class="col-2">$0.58</div>
+                <div class="col-3">$1,556.50</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;">
-                <div style="padding:14px 18px;">2,501 – 5,000</div>
-                <div style="padding:14px 18px;">$0.54</div>
-                <div style="padding:14px 18px;">$2,906.50</div>
+            <div class="pricing-row">
+                <div class="col-1">2,501 – 5,000</div>
+                <div class="col-2">$0.54</div>
+                <div class="col-3">$2,906.50</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #ebecf0;background:#fafbfc;">
-                <div style="padding:14px 18px;">5,001 – 7,500</div>
-                <div style="padding:14px 18px;">$0.51</div>
-                <div style="padding:14px 18px;">$4,181.50</div>
+            <div class="pricing-row">
+                <div class="col-1">5,001 – 7,500</div>
+                <div class="col-2">$0.51</div>
+                <div class="col-3">$4,181.50</div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;">
-                <div style="padding:14px 18px;">7,501 +</div>
-                <div style="padding:14px 18px;">From $0.48</div>
-                <div style="padding:14px 18px;">See Marketplace</div>
+            <div class="pricing-row">
+                <div class="col-1">7,501+</div>
+                <div class="col-2">From $0.48</div>
+                <div class="col-3">See Marketplace</div>
+            </div>
+            <div class="pricing-foot">
+                All plans include a <strong>30-day free trial</strong> · billed by Atlassian Marketplace · cancel anytime.<br>
+                Final tier prices and exact breakpoints are shown on the <a href="https://marketplace.atlassian.com/vendors/533206880/" target="_blank" rel="noopener">Atlassian Marketplace listing</a>.
             </div>
         </div>
-        <p style="text-align:center;color:#5e6c84;margin-top:1.5rem;font-size:.95rem;">
-            All plans include a 30-day free trial · billed by Atlassian Marketplace · cancel anytime.<br>
-            Final tier prices and exact tier breakpoints are shown on the <a href="https://marketplace.atlassian.com/vendors/533206880/" target="_blank" rel="noopener">Atlassian Marketplace listing</a>.
-        </p>
     </section>
 
+    <!-- ============== CTA ============== -->
     <section class="cta">
-        <h2>Available on Atlassian Marketplace</h2>
-        <p>Install Dashboards Rich Filters on your Jira Cloud instance.</p>
-        <a href="https://marketplace.atlassian.com/vendors/533206880/" class="btn btn-primary" target="_blank" rel="noopener" title="Visit our Atlassian Marketplace vendor page">Get Started on Marketplace</a>
+        <div class="cta-inner">
+            <h2>Bring clarity to your Jira dashboards.</h2>
+            <p>Install Dashboards Rich Filters from the Atlassian Marketplace and try every feature free for 30 days — no credit card required.</p>
+            <div class="hero-actions" style="justify-content:center;">
+                <a href="https://marketplace.atlassian.com/vendors/533206880/" class="btn btn-primary" target="_blank" rel="noopener">Get Started on Marketplace →</a>
+                <a href="documentation.html" class="btn btn-ghost">Read the Docs</a>
+            </div>
+        </div>
     </section>
 
+    <!-- ============== FOOTER ============== -->
     <footer>
         <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="image/favicon.svg" alt="">
+                    <span>Dashboards Rich Filters</span>
+                </a>
+                <p>A premium dashboard gadget for Jira Cloud — engineered on Atlassian Forge by elolin.</p>
+            </div>
             <div class="footer-col">
                 <h4>Product</h4>
                 <ul>
+                    <li><a href="#showcase">Capabilities</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#screenshots">Screenshots</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="documentation.html">Documentation</a></li>
                 </ul>
@@ -252,7 +524,7 @@
                 <h4>Support</h4>
                 <ul>
                     <li><a href="support.html">Help Center</a></li>
-                    <li><a href="mailto:dev.elolin@gmail.com">Contact Us</a></li>
+                    <li><a href="mailto:dev.elolin@gmail.com">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -265,12 +537,13 @@
             <div class="footer-col">
                 <h4>Vendor</h4>
                 <ul>
-                    <li><span style="color:#999">elolin on Marketplace (link pending)</span></li>
+                    <li><a href="https://marketplace.atlassian.com/vendors/533206880/" target="_blank" rel="noopener">elolin on Marketplace</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024-2026 elolin. Built with Atlassian Forge.</p>
+            <span>© 2024–2026 elolin. All rights reserved.</span>
+            <span>Built with <a href="https://developer.atlassian.com/platform/forge/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.7);">Atlassian Forge</a></span>
         </div>
     </footer>
 </body>
